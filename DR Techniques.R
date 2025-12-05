@@ -145,7 +145,7 @@ load_df1 <- function() {
 
 # -- df2: Chemical Composition of Ceramic --
 load_df2 <- function(path_csv =
-                       "C:/Users/Usuario/Desktop/RD - Trabalho/Artigo Completo/Datasets/2-Chemical Composition of Ceramic/Chemical Composion of Ceramic.csv") {
+                       "C:/Users/Usuario/Desktop/RD - Trabalho/Artigo Completo/Datasets/2-Chemical Composition of Ceramic/Chemical Composion of Ceramic.csv") { 
   df2 <- read.csv(path_csv, check.names = FALSE)
   if (names(df2)[1] %in% c("ID","Id","id","#","index")) df2 <- df2[, -1]
   cols_wt <- c("Na2O","MgO","Al2O3","SiO2","K2O","CaO","TiO2","Fe2O3")
@@ -767,4 +767,5 @@ writexl::write_xlsx(
   path = "DR_complete_results.xlsx"
 )
 message("Excel saved: DR_complete_results.xlsx (4 sheets).")
+
 
