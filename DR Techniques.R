@@ -629,6 +629,10 @@ metric_names_pretty <- c(
   Accuracy_kNN="kNN Accuracy", RMSE_Reconstruction="Reconstruction RMSE",
   Discontinuity="Discontinuity", GCE="Gabriel CE", C_Measure="C-measure"
 )
+                              
+save_plot <- function(gg, filename, width=9, height=8, dpi=300) {
+  ggsave(filename, gg, width=width, height=height, dpi=dpi)
+}
 
 plot_champion_best_metric <- function(best_metric, best_method, objective_name) {
   stopifnot(!is.null(best_metric), !is.null(best_method), nzchar(best_metric), nzchar(best_method))
@@ -652,6 +656,9 @@ plot_champion_best_metric <- function(best_metric, best_method, objective_name) 
     theme(plot.title=element_text(face="bold"))
   print(gg)
   #invisible(gg)
+                  
+ fname <- paste0("plot_", objective_name, "_best_metric_", best_metric, "_", best_method, ".png")
+ save_plot(gg, fname)
 }
 
 objectives <- c("clustering","reconstruction","visualization","ml_pipeline")
@@ -704,6 +711,8 @@ plot_best_method_by_objective <- function(best_method, objective_name) {
     theme(plot.title = element_text(face="bold"))
   
   print(gg)
+ fname <- paste0("plot_", objective_name, "_champion_baseline_", best_method, ".png")
+ save_plot(gg, fname)
 }
 
 objectives_scores_long <- list()
@@ -767,5 +776,6 @@ writexl::write_xlsx(
   path = "DR_complete_results.xlsx"
 )
 message("Excel saved: DR_complete_results.xlsx (4 sheets).")
+
 
 
