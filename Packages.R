@@ -45,6 +45,7 @@ install.packages("FCPS")
 install.packages("pcaPP")
 install.packages("cccd")
 install.packages("spdep")
+install.packages("pracma")
 
 # Main packages
 library(dimRed)
@@ -72,6 +73,7 @@ library(FCPS)
 library (pcaPP)
 library(cccd)
 library(spdep)
+library(pracma)
 #pkgbuild::has_build_tools(debug = TRUE)
 
 # DR Methods
@@ -88,4 +90,5 @@ library(RANN)        #HLLE
 library(Matrix)
 library(RSpectra)
 library(MASS)
+
 
